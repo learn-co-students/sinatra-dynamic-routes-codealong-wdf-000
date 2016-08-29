@@ -1,3 +1,6 @@
+require 'pry'
+
+
 require_relative 'config/environment'
 
 class App < Sinatra::Base
@@ -13,5 +16,20 @@ class App < Sinatra::Base
     "Hello #{@user_name}!"
   end
 
+
+  get '/goodbye/:name' do
+    name = params[:name]
+    "Goodbye #{name}"
+  end
+
+  get '/multiply/:num1/:num2' do
+    result1 = params[:num1].to_i
+    result2 = params[:num2].to_i
+    "#{result1 * result2}"
+
+  end
+
+#remember params is the hash. You must access the hash and they call on
+#the key :num1 to compare its value. 
 
 end
